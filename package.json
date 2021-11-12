@@ -1,0 +1,11 @@
+{
+  "name": "akkeris-desktop",
+  "version": "1.0.0",
+  "devDependencies": {
+    "electron": "^15.3.1"
+  },
+  "main":  "app-start.js",
+  "scripts": {
+    "start": "electron ."
+  }
+}
