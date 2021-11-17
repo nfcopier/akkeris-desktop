@@ -13,7 +13,9 @@ const start = async () => {
 const openWindow = () => {
     const mainWindow = new BrowserWindow({
         webPreferences: {
-            preload: path.join(__dirname, "ipc-bridges/main-bridge.js")
+            contextIsolation: true,
+            enableRemoteModule: false,
+            preload: path.join(__dirname, "utils/ipc-bridge.js")
         }
     });
     return mainWindow.loadFile("client/index.html");
