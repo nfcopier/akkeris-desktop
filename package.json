@@ -2,10 +2,17 @@
   "name": "akkeris-desktop",
   "version": "1.0.0",
   "devDependencies": {
-    "electron": "^15.3.1"
+    "@types/react": "^17.0.35",
+    "copyfiles": "^2.4.1",
+    "electron": "^15.3.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.5.2"
   },
-  "main": "app-start.js",
+  "main": "./build/app-start.js",
   "scripts": {
-    "start": "electron ."
+    "start": "npx electron .",
+    "clean": "rimraf build/",
+    "copyStaticAssets": "copyfiles -u 1 ./client/**/*.html ./build/client",
+    "build": "npm run clean && tsc && npm run copyStaticAssets"
   }
 }

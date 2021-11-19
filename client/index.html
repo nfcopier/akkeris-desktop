@@ -5,7 +5,11 @@
     <title>Akkeris Desktop</title>
 </head>
 <body>
-    <button>Click me!</button>
-    <script type="module">import "./index.js";</script>
+    <div id="root"></div>
+    <script type="module">
+        import {React, ReactDOM} from "./libraries.js";
+        import Root              from "./index.js";
+        ReactDOM.render(React.createElement(Root), document.getElementById("root"));
+    </script>
 </body>
 </html>
