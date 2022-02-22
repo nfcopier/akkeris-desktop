@@ -1,7 +1,7 @@
-const {app, BrowserWindow} = require("electron");
-const path = require("path");
+import {app, BrowserWindow} from "electron";
+import * as path from "path";
 
-require("./server/apps-controller.js");
+import "./server/token-controller";
 
 const start = async () => {
     await app.whenReady();
@@ -13,9 +13,8 @@ const start = async () => {
 const openWindow = () => {
     const mainWindow = new BrowserWindow({
         webPreferences: {
-            contextIsolation: true,
-            enableRemoteModule: false,
-            preload: path.join(__dirname, "utils/ipc-bridge.js")
+            contextIsolation: false,
+            nodeIntegration: true
         }
     });
     return mainWindow.loadFile(path.join(__dirname, "client/index.html"));
