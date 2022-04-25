@@ -11,13 +11,14 @@
   },
   "dependencies": {
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "rxjs": "^7.5.5"
   },
   "main": "./build/app-start.js",
   "scripts": {
     "start": "npm run build && electron .",
     "clean": "rimraf build/",
-    "copyStaticAssets": "copyfiles -u 1 ./client/**/*.html ./build/client",
+    "copyStaticAssets": "copyfiles -u 1 client/static/**/* build",
     "build": "npm run clean && tsc && npm run copyStaticAssets"
   }
 }

@@ -1,0 +1,23 @@
+.menu-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 2rem;
+}
+
+.menu-items {
+    display: flex;
+    justify-content: left;
+    flex-grow: 1;
+}
+
+.menu-item {
+    margin-left: 1rem;
+    font-size: 1rem;
+}
+
+.settings {
+    display: flex;
+    justify-content: center;
+    width: 5rem;
+}

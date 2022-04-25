@@ -1,0 +1,18 @@
+.dropdown-parent {
+    position: relative;
+}
+
+.dropup {
+    position: absolute;
+    bottom: 100%;
+    padding: 0.25rem;
+    box-shadow: 1px 1px rgba(0 0 0 / 30%);
+}
+
+.dropup.right {
+    left: 0;
+}
+
+.dropup.left {
+    right: 0;
+}

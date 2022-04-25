@@ -1,0 +1,17 @@
+.server-info {
+    display: flex;
+    align-items: center;
+}
+
+.full-server-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 5em;
+}
+
+.server-list {
+    display: flex;
+    flex-direction: column;
+}

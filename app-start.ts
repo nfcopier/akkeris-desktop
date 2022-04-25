@@ -1,7 +1,7 @@
 import {app, BrowserWindow} from "electron";
 import * as path from "path";
 
-import "./server/token-controller";
+import "./server/server-infos/server-info-controller";
 
 const start = async () => {
     await app.whenReady();
@@ -17,7 +17,7 @@ const openWindow = () => {
             nodeIntegration: true
         }
     });
-    return mainWindow.loadFile(path.join(__dirname, "client/index.html"));
+    return mainWindow.loadFile(path.join(__dirname, "static/index.html"));
 };
 
 const reopenWindow = () => {

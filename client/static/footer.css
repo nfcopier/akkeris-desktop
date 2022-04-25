@@ -1,0 +1,9 @@
+@import "server-info.css";
+
+.footer {
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    padding: 0.25rem;
+}

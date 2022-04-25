@@ -1,15 +1,17 @@
-import EnvironmentVariables from "./environment-variables";
 import * as React from "react";
-import {ipcRenderer} from "electron";
+import * as ReactDOM from "react-dom";
+import MenuBar from "./menu-bar/menu-bar";
+import Footer from "./footer/footer";
 
-export default class Index extends React.Component {
+class Index extends React.Component {
 
     render(): JSX.Element {
-        return <>
-            <EnvironmentVariables />
-            <button onClick={onButtonClick}>Click me!</button>
-        </>
+        return <div className={'index'}>
+            <MenuBar />
+            <div className={"content"} />
+            <Footer />
+        </div>
     }
 }
 
-const onButtonClick = () => ipcRenderer.invoke("token:add");
+ReactDOM.render(<Index />, document.getElementById("root"));

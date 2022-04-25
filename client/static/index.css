@@ -1,0 +1,32 @@
+@import "menu-bar.css";
+@import "content.css";
+@import "footer.css";
+
+.index {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: stretch;
+    width: 100%;
+    height: 100%;
+}
+
+.button {
+    cursor: pointer;
+    border: 1px gray;
+    background: cadetblue;
+    padding: 0.25rem 0.5rem 0.25rem 0.25rem;
+}
+
+.button:hover, .button.flat:hover {
+    background: cadetblue;
+}
+
+.button.flat {
+    background: inherit;
+}
+
+.inverted-color, .inverted-color * {
+    background: darkslategray;
+    color: azure;
+}
