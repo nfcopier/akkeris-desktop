@@ -2,17 +2,22 @@ import * as React from "react";
 import ServerInfo from "../../../server/server-infos/server-info";
 import {ipcRenderer} from "electron";
 
-export default class ServerList extends React.Component<{}, ServerInfo[]> {
+interface ServerInfoState {
+    list: ServerInfo[]
+}
 
-    public state: ServerInfo[] = [];
+export default class ServerList extends React.Component<{}, ServerInfoState> {
+
+    public state: ServerInfoState = {list: []};
 
     public componentDidMount(): void {
-        ipcRenderer.on("serverInfo:shortenedList", (_, r) => this.setState(r));
+        ipcRenderer.invoke("serverInfo:shortenedList").then(list => this.setState({list}));
     }
 
     render(): JSX.Element {
+        console.log(this.state);
         return <div className={"server-list"}>
-            {this.state.map(this.serverItem.bind(this))}
+            {this.state.list.map(this.serverItem.bind(this))}
         </div>;
     }
 

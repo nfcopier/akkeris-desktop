@@ -12,7 +12,7 @@ export default class FullServerInfo extends React.Component<{}, ServerInfoState>
     public state: ServerInfoState = OFFLINE;
 
     public componentDidMount(): void {
-        ipcRenderer.on("serverInfo:currentServer", (_, r) => this.setState(r));
+        ipcRenderer.invoke("serverInfo:currentServer").then(this.setState.bind(this));
     }
 
     render(): JSX.Element {
