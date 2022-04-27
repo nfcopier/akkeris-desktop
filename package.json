@@ -17,8 +17,8 @@
   "main": "./build/app-start.js",
   "scripts": {
     "start": "npm run build && electron .",
-    "clean": "rimraf build/",
-    "copyStaticAssets": "copyfiles -u 1 client/static/**/* build",
+    "clean": "rimraf ./build/",
+    "copyStaticAssets": "copyfiles -u 1 ./client/static/**/* build",
     "build": "npm run clean && tsc && npm run copyStaticAssets"
   }
 }
