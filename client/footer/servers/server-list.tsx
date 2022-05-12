@@ -1,31 +1,32 @@
 import * as React from "react";
-import ServerInfo from "../../../server/server-infos/server-info";
-import {ipcRenderer} from "electron";
+import RxValue from "../../../rx-value/rx-value";
+import RxComponent from "../../../rx-value-react/rx-component";
+import {ServerItemModel, ServerListState} from "./server-list.state";
+import {ServerListController} from "./server-list.controller";
 
-interface ServerInfoState {
-    list: ServerInfo[]
-}
+export default class ServerList extends RxComponent<{}, ServerListState> {
 
-export default class ServerList extends React.Component<{}, ServerInfoState> {
+    public state: ServerListState = {list: []};
+    private readonly controller = new ServerListController();
 
-    public state: ServerInfoState = {list: []};
-
-    public componentDidMount(): void {
-        ipcRenderer.invoke("serverInfo:shortenedList").then(list => this.setState({list}));
+    protected override configureState(): RxValue<ServerListState> {
+        return this.controller.shortenedList();
     }
 
-    render(): JSX.Element {
-        console.log(this.state);
+    public render(): JSX.Element {
         return <div className={"server-list"}>
             {this.state.list.map(this.serverItem.bind(this))}
         </div>;
     }
 
-    private serverItem(info: ServerInfo) {
-        return <div onClick={() => this.switchServer(info.id)}>{info.nickname}</div>;
+    private serverItem(info: ServerItemModel): JSX.Element {
+        return <div
+            key={info.id}
+            className={"flat button"}
+            onClick={() => this.controller.switchServer(info.id)}
+        >
+            {info.nickname}
+        </div>;
     }
 
-    private switchServer(id: number) {
-        ipcRenderer.invoke("serverInfo:switchServer", id).then(() => {});
-    }
 }

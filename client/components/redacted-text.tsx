@@ -12,7 +12,6 @@ export default class RedactedText extends React.Component<{}, RedactedState> {
     public state: RedactedState = {state: HIDDEN};
 
     render(): JSX.Element {
-        console.log(this.state);
         return this.state.state === HIDDEN ? this.hiddenText() : this.shownText();
     }
 

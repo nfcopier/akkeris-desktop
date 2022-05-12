@@ -1,15 +1,20 @@
 import ServerInfo from "./server-info";
+import RxList from "../../rx-value/rx-list";
+import RxValue from "../../rx-value/rx-value";
+import {Subject, of} from "rxjs";
+import {concatWith} from "rxjs/operators"
 
 export default class ServerInfoRepo {
 
-    private currentId: number = 0;
+    private currentId: Subject<number> = new Subject<number>();
 
-    public currentServerId(): Promise<number> {
-        return Promise.resolve(this.currentId);
+    public currentServerId(): RxValue<number> {
+        const source = of(0).pipe(concatWith(this.currentId.asObservable()))
+        return new RxValue(source);
     }
 
-    public allServers(): Promise<ServerInfo[]> {
-        return Promise.resolve([{
+    public allServers(): RxList<ServerInfo> {
+        return RxList.ofValues([{
             id: 0,
             nickname: "O.C. Tanner",
             hostname: "https://apps.octanner.io",
@@ -38,7 +43,7 @@ export default class ServerInfoRepo {
     }
 
     public switchServer(id: number): Promise<void> {
-        this.currentId = id;
+        this.currentId.next(id);
         return Promise.resolve();
     }
 

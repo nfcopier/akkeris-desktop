@@ -1,22 +1,24 @@
 import * as React from "react";
-import ServerInfo from "../../../server/server-infos/server-info";
-import {ipcRenderer} from "electron";
 import RedactedText from "../../components/redacted-text";
+import OfflineText from "../../components/offline-text";
+import FullServerInfoState from "./full-server-info.state";
+import FullServerInfoController from "./full-server-info.controller";
+import RxComponent from "../../../rx-value-react/rx-component";
+import RxValue from "../../../rx-value/rx-value";
+import OFFLINE = FullServerInfoState.OFFLINE;
 
-const OFFLINE = "offline";
+export default class FullServerInfo extends RxComponent<{}, FullServerInfoState> {
 
-type ServerInfoState = typeof OFFLINE | ServerInfo
+    public state: FullServerInfoState = OFFLINE;
+    private readonly controller = new FullServerInfoController();
 
-export default class FullServerInfo extends React.Component<{}, ServerInfoState> {
-
-    public state: ServerInfoState = OFFLINE;
-
-    public componentDidMount(): void {
-        ipcRenderer.invoke("serverInfo:currentServer").then(this.setState.bind(this));
+    protected override configureState(): RxValue<FullServerInfoState> {
+        return this.controller.info();
     }
 
     render(): JSX.Element {
-        if (this.state === OFFLINE) return <>offline</>;
+        console.log(this.state);
+        if (this.state.isOffline) return <OfflineText />;
         return <div className={"full-server-info"}>
             <div>{this.state.nickname}</div>
             <div>{this.state.hostname}</div>

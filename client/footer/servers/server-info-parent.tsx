@@ -1,20 +1,15 @@
 import * as React from "react";
-import ServerInfoLabel from "./server-info-label";
+import ServerLabel from "./server-label";
 import ServerDropup from "./server-dropup";
+import ServerInfoParentState from "./server-info-parent.state";
 
-type ServerInfoState = {
+export default class ServerInfoParent extends React.Component<{}, ServerInfoParentState>{
 
-    isOpen: Boolean
-
-}
-
-export default class ServerInfoParent extends React.Component<{}, ServerInfoState>{
-
-    public readonly state: ServerInfoState = {isOpen: false};
+    public readonly state: ServerInfoParentState = {isOpen: false};
 
     render(): JSX.Element {
         return <div className={"dropdown-parent"}>
-            <ServerInfoLabel onClick={() => this.toggleOpen()} />
+            <ServerLabel onClick={() => this.toggleOpen()} />
             {this.state.isOpen && <ServerDropup />}
         </div>;
     }
