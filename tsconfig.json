@@ -7,6 +7,7 @@
     "moduleResolution": "Node",
     "sourceMap": true,
     "noImplicitAny": true,
-    "jsx": "react"
+    "jsx": "react",
+    "newLine": "lf"
   }
 }

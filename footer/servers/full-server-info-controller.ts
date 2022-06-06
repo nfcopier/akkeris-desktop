@@ -1,8 +1,7 @@
 import ServerInfoRepo from "./server-info-repo";
-import RxValue from "../../rx-value/rx-value";
-import RxIpcMain from "../../rx-value-electron/rx-ipc-main";
-import FullServerInfoState from "../../client/footer/servers/full-server-info.state";
-import Val from "../../rx-value/val";
+import {RxValue, Val} from "rx-value";
+import {RxIpcMain} from "rx-value-electron";
+import FullServerInfoState from "./full-server-info.state";
 
 class FullServerInfoController {
 

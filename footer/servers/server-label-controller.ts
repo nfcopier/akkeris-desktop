@@ -1,8 +1,7 @@
 import ServerInfoRepo from "./server-info-repo";
-import RxValue from "../../rx-value/rx-value";
-import RxIpcMain from "../../rx-value-electron/rx-ipc-main";
-import ServerLabelState from "../../client/footer/servers/server-label.state";
-import Val from "../../rx-value/val";
+import {RxValue, Val} from "rx-value";
+import {RxIpcMain} from "rx-value-electron";
+import ServerLabelState from "./server-label.state";
 
 class ServerLabelController {
 

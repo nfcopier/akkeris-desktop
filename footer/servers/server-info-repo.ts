@@ -1,6 +1,5 @@
 import ServerInfo from "./server-info";
-import RxList from "../../rx-value/rx-list";
-import RxValue from "../../rx-value/rx-value";
+import {RxValue, RxList} from "rx-value";
 import {Subject, of} from "rxjs";
 import {concatWith} from "rxjs/operators"
 

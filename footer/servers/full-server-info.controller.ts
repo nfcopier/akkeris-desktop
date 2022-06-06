@@ -1,6 +1,6 @@
 import FullServerInfoState from "./full-server-info.state";
-import RxIpcRenderer from "../../../rx-value-electron/rx-ipc-renderer";
-import RxValue from "../../../rx-value/rx-value";
+import {RxIpcRenderer} from "rx-value-electron";
+import {RxValue} from "rx-value";
 
 export default class FullServerInfoController {
 

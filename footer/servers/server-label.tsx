@@ -3,8 +3,8 @@ import OfflineText from "../../components/offline-text";
 import ServerLabelState from "./server-label.state";
 import ServerLabelProps from "./server-label.props";
 import ServerLabelController from "./server-label.controller";
-import RxComponent from "../../../rx-value-react/rx-component";
-import RxValue from "../../../rx-value/rx-value";
+import {RxComponent} from "rx-value-react";
+import {RxValue} from "rx-value";
 import OFFLINE = ServerLabelState.OFFLINE;
 
 export default class ServerLabel extends RxComponent<ServerLabelProps, ServerLabelState> {

@@ -3,8 +3,8 @@ import RedactedText from "../../components/redacted-text";
 import OfflineText from "../../components/offline-text";
 import FullServerInfoState from "./full-server-info.state";
 import FullServerInfoController from "./full-server-info.controller";
-import RxComponent from "../../../rx-value-react/rx-component";
-import RxValue from "../../../rx-value/rx-value";
+import {RxComponent} from "rx-value-react";
+import {RxValue} from "rx-value";
 import OFFLINE = FullServerInfoState.OFFLINE;
 
 export default class FullServerInfo extends RxComponent<{}, FullServerInfoState> {

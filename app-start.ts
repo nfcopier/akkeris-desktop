@@ -1,9 +1,9 @@
 import {app, BrowserWindow} from "electron";
 import * as path from "path";
 
-import "./server/server-infos/full-server-info-controller";
-import "./server/server-infos/server-list-controller";
-import "./server/server-infos/server-label-controller";
+import "./footer/servers/full-server-info-controller";
+import "./footer/servers/server-list-controller";
+import "./footer/servers/server-label-controller";
 
 const start = async () => {
     await app.whenReady();
@@ -19,7 +19,7 @@ const openWindow = () => {
             nodeIntegration: true
         }
     });
-    return mainWindow.loadFile(path.join(__dirname, "client/index.html"));
+    return mainWindow.loadFile(path.join(__dirname, "index.html"));
 };
 
 const reopenWindow = () => {

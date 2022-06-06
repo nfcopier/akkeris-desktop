@@ -1,6 +1,6 @@
 import * as React from "react";
-import RxValue from "../../../rx-value/rx-value";
-import RxComponent from "../../../rx-value-react/rx-component";
+import {RxValue} from "rx-value";
+import {RxComponent} from "rx-value-react";
 import {ServerItemModel, ServerListState} from "./server-list.state";
 import {ServerListController} from "./server-list.controller";
 

@@ -1,11 +1,9 @@
-import ServerListInterface from "../../client/footer/servers/server-list.interface";
+import ServerListInterface from "./server-list.interface";
 import ServerInfoRepo from "./server-info-repo";
-import RxValue from "../../rx-value/rx-value";
-import {ServerListState} from "../../client/footer/servers/server-list.state";
-import Val from "../../rx-value/val";
-import RxIpcMain from "../../rx-value-electron/rx-ipc-main";
+import {AsyncUnit, RxValue, Val} from "rx-value";
+import {ServerListState} from "./server-list.state";
+import {RxIpcMain} from "rx-value-electron";
 import {ipcMain} from "electron";
-import {AsyncUnit} from "../../rx-value/async-unit";
 
 class ServerListController implements ServerListInterface {
 

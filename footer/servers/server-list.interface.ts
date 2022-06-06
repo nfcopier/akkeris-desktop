@@ -1,6 +1,5 @@
-import RxValue from "../../../rx-value/rx-value";
+import {RxValue, AsyncUnit} from "rx-value";
 import {ServerListState} from "./server-list.state";
-import {AsyncUnit} from "../../../rx-value/async-unit";
 
 export default interface ServerListInterface {
 
